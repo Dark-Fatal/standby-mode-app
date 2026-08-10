@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Pour garder l'écran allumé -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- Service en premier plan (obligatoire pour Android 9+) -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <!-- Pour la notification du service -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- Démarrage automatique après un redémarrage (optionnel) -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.StandByMode">
+
+        <!-- Activité principale : ouvre l'appli, lance le service et se ferme -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- L'horloge plein écran -->
+        <activity
+            android:name=".StandbyClockActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="false"
+            android:showWhenLocked="true"
+            android:turnScreenOn="true"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.StandByMode.FullScreen" />
+
+        <!-- Service de surveillance -->
+        <service
+            android:name=".StandbyService"
+            android:foregroundServiceType="specialUse"
+            android:exported="false" />
+
+        <!-- Récepteur pour le démarrage -->
+        <receiver
+            android:name=".BootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+</manifest>
