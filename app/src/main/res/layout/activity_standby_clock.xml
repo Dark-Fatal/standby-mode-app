@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#090909"
+    android:keepScreenOn="true">
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="00:00"
+        android:textColor="#FFFFFF"
+        android:textSize="80sp"
+        android:fontFamily="sans-serif-thin"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTime"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Mer 1 janv."
+        android:textColor="#AAAAAA"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tvBattery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:text="🔋 85%"
+        android:textColor="#5F5F5F"
+        android:textSize="18sp" />
+</RelativeLayout>
