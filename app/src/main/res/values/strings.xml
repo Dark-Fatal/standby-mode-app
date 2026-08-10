@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Mode Veille</string>
+    <string name="service_running">Le mode Veille est actif</string>
+</resources>
