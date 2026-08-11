@@ -19,7 +19,7 @@ jobs:
       - name: Set up Gradle
         uses: gradle/gradle-build-action@v2
         with:
-          gradle-version: '7.6'    # Version compatible avec la plupart des projets Android
+          gradle-version: '8.11.1'    # Version compatible avec la plupart des projets Android
 
       - name: Assemble Debug APK
         run: gradle assembleDebug --no-daemon
